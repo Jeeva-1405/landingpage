@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowState Pro - Features</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* NEW: Page Transition Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- COPY AND PASTE ALL THE CSS FROM THE INDEX.HTML <style> BLOCK HERE --- */
+        :root {
+            --primary-color: #5E35B1;
+            --secondary-color: #FFC107;
+            --text-dark: #333333;
+            --text-light: #f4f4f4;
+            --background-light: #ffffff;
+            --background-dark: #2c2c2c;
+            --max-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--background-light);
+            padding-top: 60px; /* Space for fixed navigation */
+            animation: fadeIn 0.6s ease-out; /* ELEGANT FADE-IN APPLIED */
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        section {
+            padding: 4rem 1rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            text-align: center;
+        }
+
+        .primary-cta {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+        }
+
+        .primary-cta:hover {
+            background-color: #ffda6a;
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--background-light);
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 5px 0;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        /* End Nav Styles */
+
+        /* Benefits Styles */
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-item .icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color); /* Added color for better visual */
+        }
+        
+        /* NEW: How It Works Styles */
+        .how-it-works-section {
+            background-color: #f7f7f7;
+            padding: 5rem 1rem;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 1.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+            padding-top: 5px;
+        }
+
+        .step-content h3 {
+            margin-top: 0;
+            color: var(--text-dark);
+        }
+
+        /* NEW: Tech Specs Styles */
+        .tech-specs-section {
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            padding: 5rem 1rem;
+        }
+        .tech-specs-section h2, .tech-specs-section h3 {
+            color: var(--text-light);
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .spec-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .spec-item h3 {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+        footer a {
+            color: #666;
+            text-decoration: underline;
+        }
+        /* Media Query for responsiveness */
+        @media (max-width: 768px) {
+            body { padding-top: 50px; }
+            .nav-container { flex-direction: column; align-items: center; padding: 0.5rem 1rem; }
+            .nav-links { margin-top: 5px; }
+            .nav-links a { margin: 0 10px; font-size: 0.9rem; }
+            .process-step { flex-direction: column; align-items: center; text-align: center; }
+            .step-number { margin-right: 0; margin-bottom: 0.5rem; }
+            .step-content { text-align: center; }
+        }
+    </style>
+    </head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-text">FlowState Pro</a>
+            <div class="nav-links">
+                <a href="features.html">Features</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="index.html" class="primary-cta" style="width: auto; padding: 0.5rem 1rem; margin: 0 0 0 15px; display: inline-block; font-size: 1rem;">Try Free</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="benefits-section" id="features">
+        <h2>The Secret to Deep Work Is No Longer a Secret.</h2>
+        <p class="section-intro">FlowState Pro isn't just a to-do list—it's your AI-powered work coach that turns distraction into action.</p>
+
+        <div class="benefit-grid">
+            <div class="benefit-item">
+                <span class="icon">⚡️</span>
+                <h3>Instantly Block All Noise</h3>
+                <p>Our AI actively suppresses *internal and external* distractions, muting notifications and guiding you back to your primary task in under a second.</p>
+            </div>
+            <div class="benefit-item">
+                <span class="icon">🗓️</span>
+                <h3>Perfectly Optimized Schedule</h3>
+                <p>Stop guessing. FlowState Pro analyzes your personal work habits to automatically schedule your critical tasks during your **natural peak focus windows.**</p>
+            </div>
+            <div class="benefit-item">
+                <span class="icon">📈</span>
+                <h3>Get Real-Time Focus Metrics</h3>
+                <p>See exactly where your time is going with clear, actionable reports. Finally understand why you're stressed and how to stop it for good.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works-section">
+        <h2>How Our AI Creates Your Flow State</h2>
+        <p class="section-intro">Our proprietary Neuro-Linguistic Scheduling (NLS) engine uses a three-step process to optimize your productivity, moving beyond simple time blocking.</p>
+
+        <div class="process-step">
+            <span class="step-number">1.</span>
+            <div class="step-content">
+                <h3>Analyze & Learn</h3>
+                <p>For the first 72 hours, FlowState Pro passively monitors your digital activity, brainwave patterns (optional with wearables), and calendar data to build a precise map of your energy and distraction points.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <span class="step-number">2.</span>
+            <div class="step-content">
+                <h3>Optimize & Schedule</h3>
+                <p>It then intelligently matches your task list to your **peak cognitive windows**. High-complexity tasks are slotted for peak focus; administrative tasks for low-energy dips. This is where the magic happens.</p>
+            </div>
+        </div>
+
+        <div class="process-step">
+            <span class="step-number">3.</span>
+            <div class="step-content">
+                <h3>Shield & Guide</h3>
+                <p>As you work, the app provides real-time "Focus Shielding," automatically silencing non-critical applications, pausing email syncs, and providing gentle, non-disruptive cues when it detects a drop in focus.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-specs-section">
+        <h2>Technical Specifications & Security</h2>
+        <p class="section-intro" style="color: var(--text-light);">Built on a foundation of speed, reliability, and enterprise-grade security.</p>
+        
+        <div class="specs-grid">
+            <div class="spec-item">
+                <h3>Security</h3>
+                <p>256-bit AES encryption. SOC 2 Type II compliant. Data anonymization options available.</p>
+            </div>
+            <div class="spec-item">
+                <h3>Compatibility</h3>
+                <p>Desktop applications for macOS and Windows. Mobile apps for iOS and Android. Browser extension for Chrome/Firefox.</p>
+            </div>
+            <div class="spec-item">
+                <h3>Integrations</h3>
+                <p>Seamless two-way sync with Google Workspace, Microsoft 365, Slack, Asana, Trello, and Zapier for custom workflows.</p>
+            </div>
+            <div class="spec-item">
+                <h3>AI Model</h3>
+                <p>Proprietary NLS (Neuro-Linguistic Scheduling) Engine, continuously updated via machine learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FlowState Pro. | <a href="index.html#privacy">Privacy Policy</a></p>
+    </footer>
+
+</body>
+</html>

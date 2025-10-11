@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowState Pro - Testimonials</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* NEW: Page Transition Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- COPY AND PASTE ALL THE CSS FROM THE INDEX.HTML <style> BLOCK HERE --- */
+        :root {
+            --primary-color: #5E35B1;
+            --secondary-color: #FFC107;
+            --text-dark: #333333;
+            --text-light: #f4f4f4;
+            --background-light: #ffffff;
+            --background-dark: #2c2c2c;
+            --max-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--background-light);
+            padding-top: 60px; /* Space for fixed navigation */
+            animation: fadeIn 0.6s ease-out; /* ELEGANT FADE-IN APPLIED */
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        section {
+            padding: 4rem 1rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            text-align: center;
+        }
+
+        .primary-cta {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+        }
+
+        .primary-cta:hover {
+            background-color: #ffda6a;
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--background-light);
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 5px 0;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        /* End Nav Styles */
+
+        /* Testimonials Styles */
+        .testimonial-section {
+            background-color: #f7f7f7;
+            padding: 5rem 1rem;
+        }
+        
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial cite {
+            display: block;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* NEW: Case Study Styles */
+        .case-study-section {
+            padding: 5rem 1rem;
+            background-color: var(--background-light);
+        }
+        
+        .case-study-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+        }
+
+        .case-study-quote {
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            padding: 1rem 0;
+            border-top: 1px dashed #ccc;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        .results-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .result-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            line-height: 1;
+        }
+        .result-item p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #666;
+            margin-top: 0;
+        }
+
+        
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+        footer a {
+            color: #666;
+            text-decoration: underline;
+        }
+        /* Media Query for responsiveness */
+        @media (max-width: 768px) {
+            body { padding-top: 50px; }
+            .nav-container { flex-direction: column; align-items: center; padding: 0.5rem 1rem; }
+            .nav-links { margin-top: 5px; }
+            .nav-links a { margin: 0 10px; font-size: 0.9rem; }
+            .results-grid { flex-direction: column; gap: 1.5rem; }
+            .case-study-content { padding: 2rem 1rem; }
+        }
+    </style>
+    </head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-text">FlowState Pro</a>
+            <div class="nav-links">
+                <a href="features.html">Features</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="index.html" class="primary-cta" style="width: auto; padding: 0.5rem 1rem; margin: 0 0 0 15px; display: inline-block; font-size: 1rem;">Try Free</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="testimonial-section" id="testimonials">
+        <h2>What Our Focused Users Are Saying</h2>
+        <p class="section-intro">Don't just take our word for it—read the stories of professionals who turned their distraction into deep, meaningful work.</p>
+        
+        <div class="testimonial-grid">
+            <blockquote class="testimonial">
+                <p>"I finished my last project **3 days early.** My whole week is planned for me. This is a must-have."</p>
+                <cite>— Sarah Chen, *Creative Director* at *Horizon Studios*</cite>
+            </blockquote>
+            <blockquote class="testimonial">
+                <p>"The AI-blocking feature is unreal. Our team's weekly output is up **22%** since we switched."</p>
+                <cite>— Markus Bell, *Lead Engineer* at *Zenith Corp*</cite>
+            </blockquote>
+            <blockquote class="testimonial">
+                <p>"I used to spend half my day checking email. FlowState Pro gave me back 10+ hours a week."</p>
+                <cite>— Emily Carter, *Marketing Manager* at *Innovatech*</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <section class="case-study-section">
+        <h2>Case Study Spotlight: Zenith Corp Engineering Team</h2>
+
+        <div class="case-study-content">
+            <p>Zenith Corp's 50-person engineering department was struggling with project delays due to fragmented attention and too many unscheduled meetings. The biggest culprit was context switching.</p>
+            <p>After a 90-day rollout of FlowState Pro's team-focused tools, the results were transformative:</p>
+
+            <div class="results-grid">
+                <div class="result-item">
+                    <h3>22%</h3>
+                    <p>Increase in Weekly Output</p>
+                </div>
+                <div class="result-item">
+                    <h3>10.5h</h3>
+                    <p>Saved per Engineer / Week</p>
+                </div>
+                <div class="result-item">
+                    <h3>-40%</h3>
+                    <p>Reduction in Internal Chat Pings</p>
+                </div>
+            </div>
+
+            <p class="case-study-quote">"Before FlowState Pro, our engineers had to constantly fight the urge to check Slack or respond to an email mid-coding session. Now, the system handles that for them. It’s a literal productivity shield. The 22% increase in output has allowed us to deliver two major features ahead of schedule."</p>
+            <cite style="display: block; text-align: right; margin-top: 1rem;">— Markus Bell, *Lead Engineer* at *Zenith Corp*</cite>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FlowState Pro. | <a href="index.html#privacy">Privacy Policy</a></p>
+    </footer>
+
+</body>
+</html>

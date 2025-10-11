@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowState Pro - Stop Working Hard. Start Working Focused.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* NEW: Page Transition Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- 1. GLOBAL STYLES & RESET --- */
+        :root {
+            --primary-color: #5E35B1; /* Deep Purple for Brand/CTA */
+            --secondary-color: #FFC107; /* Bright Yellow/Amber for Accent */
+            --text-dark: #333333;
+            --text-light: #f4f4f4;
+            --background-light: #ffffff;
+            --background-dark: #2c2c2c;
+            --max-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--background-light);
+            padding-top: 60px; /* Space for fixed navigation */
+            animation: fadeIn 0.6s ease-out; /* ELEGANT FADE-IN APPLIED */
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- 2. TYPOGRAPHY --- */
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .subhead {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        /* --- 3. REUSABLE CONTAINERS & BUTTONS --- */
+        section {
+            padding: 4rem 1rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            text-align: center;
+        }
+
+        .primary-cta, .final-cta {
+            background-color: var(--secondary-color); /* Bright color to contrast everything */
+            color: var(--text-dark);
+            margin-top: 1rem;
+        }
+
+        .primary-cta:hover, .final-cta:hover {
+            background-color: #ffda6a; /* Lighter hover effect */
+            transform: translateY(-2px);
+        }
+
+        /* --- 4. NAVIGATION BAR STYLES --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--background-light);
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* Pushes the logo left and links right */
+            align-items: center;
+            padding: 0.75rem 1rem;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 5px 0;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- 5. HERO SECTION STYLES --- */
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap; 
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            min-height: calc(100vh - 60px); 
+            padding-top: 2rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px; 
+        }
+
+        /* Hero Image Container */
+        .hero-image-placeholder {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden; 
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 12px;
+        }
+
+
+        .lead-form {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .lead-form input[type="email"] {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .lead-form input[type="email"]:focus {
+            border-color: var(--primary-color);
+        }
+
+        .risk-reversal {
+            font-size: 0.9rem;
+            text-align: center;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Form Success Message */
+        #success-message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(94, 53, 177, 0.95); 
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease-in-out;
+            z-index: 10;
+        }
+        
+        #success-message.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* --- 6. TRUST BAR STYLES --- */
+        .trust-bar {
+            background-color: #e3f2fd; 
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .trust-text {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .logo-group {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 600;
+            color: var(--primary-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* --- 7. FAQ ACCORDION STYLES (Kept for Anchor Link) --- */
+        .faq-section {
+            padding-top: 2rem;
+            padding-bottom: 5rem;
+        }
+        .accordion {
+            background-color: #f9f9f9;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1rem;
+            transition: background-color 0.4s;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion:hover, .accordion.active {
+            background-color: #f1f1f1;
+        }
+        
+        .accordion:first-of-type {
+            border-top: 1px solid #eee;
+        }
+        
+        .accordion .icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .accordion.active .icon {
+            transform: rotate(45deg);
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-bottom: 1px solid #eee;
+        }
+        .panel p {
+            padding: 1rem 0;
+        }
+
+        /* --- 8. FINAL CTA SECTION --- */
+        .final-cta-section {
+            text-align: center;
+            padding: 4rem 1rem;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .final-cta-section h2 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .guarantee-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .final-cta {
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* --- 9. FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+        footer a {
+            color: #666;
+            text-decoration: underline;
+        }
+
+        /* --- 10. MEDIA QUERIES (Responsiveness) --- */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 50px; 
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 0.5rem 1rem;
+            }
+            .nav-links {
+                margin-top: 5px;
+            }
+            .nav-links a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content {
+                text-align: center;
+                order: 2; 
+            }
+
+            .hero-image-placeholder {
+                order: 1;
+                height: 250px;
+                margin-bottom: 2rem;
+            }
+
+            .lead-form {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+    </head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-text">FlowState Pro</a>
+            <div class="nav-links">
+                <a href="features.html">Features</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="#faq">FAQ</a> <a href="contact.html">Contact</a>
+                <a href="index.html" class="primary-cta" style="width: auto; padding: 0.5rem 1rem; margin: 0 0 0 15px; display: inline-block; font-size: 1rem;">Try Free</a>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="hero-section" id="hero">
+        <div class="hero-content">
+            <h1>Stop Working Hard. Start Working Focused.</h1>
+            <p class="subhead">Reclaim your workday with the AI tool that automatically filters distractions and schedules your peak productivity windows.</p>
+
+            <div class="cta-block">
+                <form class="lead-form" id="trial-form">
+                    <input type="email" id="email-input" placeholder="Enter your work email" required>
+                    <button type="submit" class="cta-button primary-cta">Start My Free 14-Day Trial</button>
+                    <p class="risk-reversal">No credit card required. Cancel anytime before your trial ends.</p>
+                    
+                    <div id="success-message">
+                        Success! Check your email to start the trial.
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="hero-image-placeholder">
+            <img src="saas.jpg" alt="FlowState Pro Dashboard showing 95% Focus Score" class="hero-image">
+        </div>
+    </header>
+
+    <section class="trust-bar">
+        <p class="trust-text">Trusted by **15,000+** Professionals Globally. As Featured In:</p>
+        <div class="logo-group">
+            <span class="logo">Fast Company</span>
+            <span class="logo">LifeHacker</span>
+            <span class="logo">The Productivity Show</span>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <h2>Quick Answers to Your Questions</h2>
+
+        <button class="accordion">Is FlowState Pro difficult to set up? <span class="icon">+</span></button>
+        <div class="panel">
+            <p>No! Setup takes less than 5 minutes. You simply link your calendar and task manager, and our AI begins learning your focus patterns immediately. You'll be ready for deep work by your next work block.</p>
+        </div>
+
+        <button class="accordion">Do I need to enter a credit card for the trial? <span class="icon">+</span></button>
+        <div class="panel">
+            <p>Absolutely not. We only require your email address to start your 14-day risk-free trial. We want you to experience the productivity boost before any commitment.</p>
+        </div>
+        
+        <button class="accordion">Does FlowState Pro integrate with my existing tools? <span class="icon">+</span></button>
+        <div class="panel">
+            <p>Yes. FlowState Pro is compatible with all major platforms including Google Calendar, Outlook, Asana, Trello, and Slack. Our integrations are designed for seamless, one-click connection.</p>
+        </div>
+    </section>
+
+    <section class="final-cta-section">
+        <h2>Our Promise: Hit Your Deadlines Without the Burnout.</h2>
+        <p class="guarantee-text">We are confident that FlowState Pro will fundamentally change the way you work. You have nothing to lose but your distractions.</p>
+        
+        <button type="button" class="cta-button final-cta" onclick="document.getElementById('email-input').focus(); window.scrollTo({ top: 0, behavior: 'smooth' });">Start My Free 14-Day Trial</button>
+        <p class="final-note">No commitment. Try it free for 2 weeks.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FlowState Pro. | <a href="#privacy">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // 1. FAQ ACCORDION LOGIC
+        var acc = document.getElementsByClassName("accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+
+        // 2. HERO FORM SUBMISSION LOGIC (Simulated Success)
+        document.getElementById('trial-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const emailInput = document.getElementById('email-input');
+            const successMessage = document.getElementById('success-message');
+
+            if (emailInput.checkValidity()) {
+                successMessage.classList.add('visible');
+                
+                setTimeout(() => {
+                    successMessage.classList.remove('visible');
+                    this.reset();
+                }, 3000); 
+            }
+        });
+        
+        // 3. Final CTA button scrolls to the top form for conversion ease
+        document.querySelector('.final-cta').addEventListener('click', function() {
+            document.getElementById('email-input').focus();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
