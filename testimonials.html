@@ -304,6 +304,15 @@
     <footer>
         <p>&copy; 2025 FlowState Pro. | <a href="index.html#privacy">Privacy Policy</a></p>
     </footer>
-
+<script>
+if (typeof window.pushONclsuboffer === "undefined") {
+ document.addEventListener('pushONclStarted', (e) => {
+  window.pushONclsuboffer.activate()
+ });
+} else {
+ window.pushONclsuboffer.activate()
+}
+</script>
 </body>
+
 </html>
